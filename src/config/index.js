@@ -1,4 +1,6 @@
 import development from "../config/development.js";
+import production from "../config/production.js";
+
 import dotenv from "dotenv";
 
 dotenv.config({ path: "./configenv.env" });

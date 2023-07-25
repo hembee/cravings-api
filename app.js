@@ -25,11 +25,11 @@ app.use(cors());
 // Routes
 app.use("/user", userRouter);
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:3003",
-//   })
-// );
+app.use(
+  cors({
+    origin: "http://localhost:3008",
+  })
+);
 
 // error handler
 app.use(globalErrorHandler);
