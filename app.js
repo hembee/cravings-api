@@ -8,7 +8,7 @@ import userRouter from "./src/router/userRoute.js";
 
 dotenv.config({ path: "./configenv.env" });
 
-const mongoURI = process.env.DEV_MONGODB_CONNECTION_URL;
+const mongoURI = process.env.PRODUCTION_MONGODB_CONNECTION_URL;
 
 mongoose
   .connect(mongoURI)
