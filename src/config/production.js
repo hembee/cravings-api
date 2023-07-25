@@ -9,4 +9,4 @@ const production = {
   PORT: +process.env.PORT,
 };
 
-module.exports = production;
+export default production;
