@@ -5,16 +5,17 @@ import dotenv from "dotenv";
 import cors from "cors";
 import globalErrorHandler from "./src/utils/globalErrorHandler.js";
 import userRouter from "./src/router/userRoute.js";
+import config from "./src/config/index.js";
 
 dotenv.config({ path: "./configenv.env" });
 
-const mongoURI = process.env.PRODUCTION_MONGODB_CONNECTION_URL;
+const mongoURI = config.MONGODB_CONNECTION_URL;
 
 mongoose
   .connect(mongoURI)
   .then(console.log("Database connection is established"))
   .catch((err) => console.log(err.message));
-const port = process.env.PORT;
+const port = config.PORT;
 const app = express();
 
 // Middleware

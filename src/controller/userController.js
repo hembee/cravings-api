@@ -2,6 +2,7 @@ import { BadUserRequestError, NotFoundError } from "../error/error.js";
 import User from "../model/userModel.js";
 import userSignUpValidator from "../validators/userValidator.js";
 import bcrypt from "bcrypt";
+// import config from "../config/index.js";
 
 const userController = {
   userSignupController: async (req, res) => {
@@ -13,6 +14,9 @@ const userController = {
       throw new BadUserRequestError(
         "An account with this email already exists"
       );
+
+    // const saltRounds = config.bcrypt_salt_round;
+    // const hashedPassword = bcrypt.hashSync(password, saltRounds);
 
     const newUser = await User.create({
       firstName,
