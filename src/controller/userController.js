@@ -1,7 +1,6 @@
 import { BadUserRequestError, NotFoundError } from "../error/error.js";
 import User from "../model/userModel.js";
 import userSignUpValidator from "../validators/userValidator.js";
-import bcrypt from "bcrypt";
 
 const userController = {
   userSignupController: async (req, res) => {
