@@ -11,5 +11,6 @@ userRouter.post(
   "/signup",
   tryCatchHandler(userController.userSignupController)
 );
+userRouter.post("/login", tryCatchHandler(userController.userLoginController));
 
 module.exports = userRouter;

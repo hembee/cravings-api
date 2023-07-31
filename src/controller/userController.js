@@ -1,6 +1,9 @@
 const { BadUserRequestError, NotFoundError } = require("../error/error.js");
 const User = require("../model/userModel.js");
-const {userSignUpValidator, userLoginValidator} = require("../validators/userValidator.js");
+const {
+  userSignUpValidator,
+  userLoginValidator,
+} = require("../validators/userValidator.js");
 
 const bcrypt = require("bcrypt");
 
@@ -32,7 +35,22 @@ const userController = {
       },
     });
   },
-  userLoginController: async (req, res) => {},
+  userLoginController: async (req, res) => {
+    const { error } = userLoginValidator.validate(req.body);
+    if (error) throw error;
+    const user = await User.findOne({ email: req.body?.email });
+    if (!user) throw new BadUserRequestError("User not signed up");
+    const confirmPass = bcrypt.compareSync(req.body?.password, user.password);
+    if (!confirmPass) throw new BadUserRequestError("Invalid password");
+
+    res.status(200).json({
+      status: "Success",
+      message: "User login successfully",
+      data: {
+        user: user,
+      },
+    });
+  },
 };
 
 module.exports = userController;
