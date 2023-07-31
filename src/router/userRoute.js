@@ -4,7 +4,7 @@ const tryCatchHandler = require("../utils/tryCatchHandler.js");
 
 const userRouter = express.Router();
 
-userRouter.get("/", () => {
+userRouter.get("/", (req, res) => {
   res.send("Welcome to cravings meals, satisfy your cravings.");
 });
 userRouter.post(
