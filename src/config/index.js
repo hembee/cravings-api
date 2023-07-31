@@ -1,9 +1,9 @@
-import development from "../config/development.js";
-import production from "../config/production.js";
+const development = require("../config/development.js");
+const production = require("../config/production.js");
 
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 
-dotenv.config({ path: "./configenv.env" });
+dotenv.config();
 
 const environment = process.env.NODE_ENV;
 
@@ -19,4 +19,4 @@ if (environment.trim() === "development") {
   config = { ...development };
 }
 
-export default config;
+module.exports = config;

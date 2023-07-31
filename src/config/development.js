@@ -1,6 +1,6 @@
-import dotenv from "dotenv";
+const dotenv = require("dotenv");
 
-dotenv.config({ path: "./configenv.env" });
+dotenv.config();
 
 const development = {
   MONGODB_CONNECTION_URL: process.env.DEV_MONGODB_CONNECTION_URL,
@@ -8,4 +8,4 @@ const development = {
   PORT: process.env.PORT,
 };
 
-export default development;
+module.exports = development;

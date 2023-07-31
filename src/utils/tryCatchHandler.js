@@ -8,4 +8,4 @@ const tryCatchHandler = (controller) => {
   };
 };
 
-export default tryCatchHandler;
+module.exports = tryCatchHandler;
