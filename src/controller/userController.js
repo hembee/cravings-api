@@ -1,6 +1,8 @@
-import { BadUserRequestError, NotFoundError } from "../error/error.js";
-import User from "../model/userModel.js";
-import userSignUpValidator from "../validators/userValidator.js";
+const { BadUserRequestError, NotFoundError } = require("../error/error.js");
+const User = require("../model/userModel.js");
+const {userSignUpValidator, userLoginValidator} = require("../validators/userValidator.js");
+
+const bcrypt = require("bcrypt");
 
 const userController = {
   userSignupController: async (req, res) => {
@@ -12,12 +14,14 @@ const userController = {
       throw new BadUserRequestError(
         "An account with this email already exists"
       );
+    const saltRounds = 10;
+    const hashedPassword = bcrypt.hashSync(password, saltRounds);
 
     const newUser = await User.create({
       firstName,
       lastName,
       email,
-      password,
+      password: hashedPassword,
     });
 
     res.status(201).json({
@@ -28,6 +32,7 @@ const userController = {
       },
     });
   },
+  userLoginController: async (req, res) => {},
 };
 
-export default userController;
+module.exports = userController;

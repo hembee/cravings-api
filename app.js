@@ -1,13 +1,13 @@
-import express from "express";
-import morgan from "morgan";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import cors from "cors";
-import globalErrorHandler from "./src/utils/globalErrorHandler.js";
-import userRouter from "./src/router/userRoute.js";
-import config from "./src/config/index.js";
+const express = require ("express") ;
+const morgan = require ("morgan") ;
+const mongoose = require ("mongoose") ;
+const dotenv = require ("dotenv") ;
+const cors = require ("cors") ;
+const globalErrorHandler = require ("./src/utils/globalErrorHandler.js") ;
+const userRouter = require ("./src/router/userRoute.js") ;
+const config = require ("./src/config/index.js") ;
 
-dotenv.config({ path: "./configenv.env" });
+dotenv.config();
 
 const mongoURI = config.MONGODB_CONNECTION_URL;
 

@@ -1,6 +1,6 @@
-import express from "express";
-import userController from "../controller/userController.js";
-import tryCatchHandler from "../utils/tryCatchHandler.js";
+const express = require("express");
+const userController = require("../controller/userController.js");
+const tryCatchHandler = require("../utils/tryCatchHandler.js");
 
 const userRouter = express.Router();
 
@@ -9,4 +9,4 @@ userRouter.post(
   tryCatchHandler(userController.userSignupController)
 );
 
-export default userRouter;
+module.exports = userRouter;

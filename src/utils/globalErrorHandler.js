@@ -13,4 +13,4 @@ const globalErrorHandler = (err, req, res, next) => {
     status: "Failed",
   });
 };
-export default globalErrorHandler;
+module.exports= globalErrorHandler;

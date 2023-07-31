@@ -1,4 +1,4 @@
-import Joi from "joi";
+const Joi = require("joi");
 
 const userSignUpValidator = Joi.object({
   firstName: Joi.string(),
@@ -15,4 +15,12 @@ const userSignUpValidator = Joi.object({
     ),
 });
 
-export default userSignUpValidator;
+const userLoginValidator = Joi.object({
+  email: Joi.string().email(),
+  password: Joi.string(),
+});
+
+module.exports = {
+  userSignUpValidator,
+  userLoginValidator,
+};
