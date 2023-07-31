@@ -1,11 +1,11 @@
-const express = require ("express") ;
-const morgan = require ("morgan") ;
-const mongoose = require ("mongoose") ;
-const dotenv = require ("dotenv") ;
-const cors = require ("cors") ;
-const globalErrorHandler = require ("./src/utils/globalErrorHandler.js") ;
-const userRouter = require ("./src/router/userRoute.js") ;
-const config = require ("./src/config/index.js") ;
+const express = require("express");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const globalErrorHandler = require("./src/utils/globalErrorHandler.js");
+const userRouter = require("./src/router/userRoute.js");
+const config = require("./src/config/index.js");
 
 dotenv.config();
 
