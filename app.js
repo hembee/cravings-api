@@ -9,7 +9,8 @@ const config = require("./src/config/index.js");
 
 dotenv.config();
 
-const mongoURI = config.MONGODB_CONNECTION_URL;
+const mongoURI =
+  "mongodb+srv://cash2go:cash2go@blax.sa6yubn.mongodb.net/cravings?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoURI)
