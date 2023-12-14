@@ -6,7 +6,6 @@ const cors = require("cors");
 const globalErrorHandler = require("./src/utils/globalErrorHandler.js");
 const userRouter = require("./src/router/userRoute.js");
 const config = require("./src/config/index.js");
-
 dotenv.config();
 
 const mongoURI =
@@ -16,7 +15,7 @@ mongoose
   .connect(mongoURI)
   .then(console.log("Database connection is established"))
   .catch((err) => console.log(err.message));
-const port = config.PORT;
+const port = config.PORT || 4000;
 const app = express();
 
 // Middleware
