@@ -42,13 +42,14 @@ const userController = {
     if (!user) throw new BadUserRequestError("User not signed up");
     const confirmPass = bcrypt.compareSync(req.body?.password, user.password);
     if (!confirmPass) throw new BadUserRequestError("Invalid password");
+    const accessToken = generateToken(user);
 
     res.status(200).json({
       status: "Success",
       message: "User login successfully",
       data: {
         user: user,
-        accessToken: generateToken(user),
+        accessToken: accessToken,
       },
     });
   },
