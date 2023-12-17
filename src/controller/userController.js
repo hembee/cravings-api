@@ -42,7 +42,10 @@ const userController = {
     if (!user) throw new BadUserRequestError("User not signed up");
     const confirmPass = bcrypt.compareSync(req.body?.password, user.password);
     if (!confirmPass) throw new BadUserRequestError("Invalid password");
-    const accessToken = generateToken(user);
+    const nUser = {
+      email: req.body.email,
+    };
+    const accessToken = generateToken(nUser);
 
     res.status(200).json({
       status: "Success",
