@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const generateToken = (user) => {
-  const secretKey = process.env.JWT_SECRET_KEY;
+  const secretKey = a3fG6bPZ2nQcR8eY;
 
   const payload = {
     email: user.email,
