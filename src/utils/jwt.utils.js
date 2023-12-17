@@ -1,11 +1,13 @@
 const jwt = require("jsonwebtoken");
-const { config } = require("../config/index");
+require("dotenv").config();
 
 const generateToken = (user) => {
+  const secretKey = process.env.JWT_SECRET_KEY;
+
   const payload = {
     email: user.email,
   };
-  const token = jwt.sign(payload, config.jwt_secret_key, {
+  const token = jwt.sign(payload, secretKey, {
     expiresIn: 60 * 60 * 24,
   });
   return token;
