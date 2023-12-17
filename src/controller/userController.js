@@ -4,7 +4,7 @@ const {
   userSignUpValidator,
   userLoginValidator,
 } = require("../validators/userValidator.js");
-
+const { generateToken } = require("../utils/jwt.utils.js");
 const bcrypt = require("bcrypt");
 
 const userController = {
@@ -48,6 +48,7 @@ const userController = {
       message: "User login successfully",
       data: {
         user: user,
+        accessToken: generateToken(user),
       },
     });
   },
