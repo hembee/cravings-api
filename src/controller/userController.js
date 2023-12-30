@@ -52,7 +52,7 @@ const userController = {
       message: "User login successfully",
       data: {
         user: user,
-        accessToken: accessToken,
+        accessToken: "nwgshsnsbahhqbbsujsbgg",
       },
     });
   },
