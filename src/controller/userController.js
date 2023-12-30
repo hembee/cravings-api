@@ -50,10 +50,8 @@ const userController = {
     res.status(200).json({
       status: "Success",
       message: "User login successfully",
-      data: {
-        user: user,
-        accessToken: "nwgshsnsbahhqbbsujsbgg",
-      },
+      user: user,
+      accessToken: accessToken
     });
   },
 };
